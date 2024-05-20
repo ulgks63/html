@@ -4,16 +4,33 @@
     box-sizing: border-box;
 }
 
+:root{
+    --color_text: white;
+    --bg_url:url(./assets/bg-mobile.jpg);
+    --stork_color:rgba(255, 255, 255, 0.5);
+    --storkbg_color:rgba(255, 255, 255, 0.1);
+    --storkbg_color_hover:rgba(255, 255, 255, 0.2);
+    --switch_bg:url(./assets/moon-stars.svg);
+    
+}
+
+.light{
+    --color_text: black;
+    --bg_url:url(./assets/bg-mobile-light.jpg);
+    --stork_color:rgba(0, 0, 0, 0.05);
+    --storkbg_color:rgba(0, 0, 0, 0.05);
+    --storkbg_color_hover:rgba(0, 0, 0, 0.2);
+    --highlight_color:rgba(0, 0, 0, 0.2);
+    --switch_bg:url(./assets/sun.svg);
+}
+
 body * {
     font-family: "Inter", sans-serif;
-    color: white;
+    color: var(--color_text);
 }
 
 body{
-    background-image: url(./assets/bg-desktop.jpg);
-    background-repeat: no-repeat;
-    background-position: top center;
-    background-size: cover;
+    background: var(--bg_url) no-repeat top center/cover;
 }
 
 #content{
@@ -38,11 +55,47 @@ body{
     margin-top: 8px;
 }
 
+#switch{
+    position: relative;
+    width: 64px;
+    margin: 0 auto;
+}
+
+#switch button {
+    width: 32px;
+    height: 32px;
+    background: white var(--switch_bg) no-repeat center;
+    border: 0;
+    left: 0;
+    border-radius: 50%;;
+
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+    transform: translateY(-50%);
+}
+
+.light #switch button{
+    right: 0;
+    left: initial;
+}
+
+#switch span{
+    display: block;
+    width: 64px;
+    height: 24px;
+    background: var(--storkbg_color);
+    border: 1px solid var(--stork_color);
+    backdrop-filter: blur(4px);
+    border-radius: 9999px;
+}
+
 ul {
     list-style: none;
     display: flex;
     flex-direction: column;
     gap: 16px;
+    padding: 24px;
 }
 
 ul li a{
@@ -50,8 +103,8 @@ ul li a{
     align-items: center;
     justify-content: center;
     padding: 16px 24px;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    background: var(--storkbg_color);
+    border: 1px solid var(--stork_color);
     border-radius: 5px;
     backdrop-filter: blur(4px);
     text-decoration: none;
@@ -61,6 +114,34 @@ ul li a{
 }
 
 ul li a:hover{
-    background: rgba(255, 255, 255, 0.05);
-    border: 1.5px solid white;
+    background: var(--storkbg_color);
+    border: 1.5px solid var(--storkbg_color_hover);
+}
+
+#socialmidia{
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+
+    padding: 24px;
+    font-size: 24px;
+}
+
+#socialmidia a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;  
+    transition: 0.2s;
+    border-radius: 50%;
+}
+
+#socialmidia a:hover{
+    background: var(--storkbg_color_hover);
+
+}
+footer{
+    padding: 24px;
+    text-align: center;
+    font-size: 14px;
 }
